@@ -1,4 +1,4 @@
-name: Autograde Python Assignment
+name: Autograde Factorial Assignment
 
 on: [push, pull_request]
 
@@ -14,11 +14,6 @@ jobs:
       with:
         python-version: '3.x'
 
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install pytest
-
     - name: Run tests
       run: |
-        pytest test_solution.py --tb=short --disable-warnings
+        python3 -m unittest test_solution.py
