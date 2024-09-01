@@ -25,5 +25,9 @@ class TestFactorialProgram(unittest.TestCase):
         output = self.run_program("10\n")
         self.assertEqual(output, "3628800")
 
+    def test_factorial_negative_number(self):
+        output = self.run_program("-10\n")
+        self.assertEqual(output, "Error")
+
 if __name__ == "__main__":
     unittest.main()
