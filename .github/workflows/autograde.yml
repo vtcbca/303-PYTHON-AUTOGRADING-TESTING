@@ -36,8 +36,13 @@ jobs:
 
       - name: Run tests and collect results
         run: |
+          echo "Current Directory:"
+          pwd
+          echo "List of Files:"
+          ls -al
           mkdir -p results
           pytest -v > results/test_output.txt
+
 
       - name: Upload results
         uses: actions/upload-artifact@v3
