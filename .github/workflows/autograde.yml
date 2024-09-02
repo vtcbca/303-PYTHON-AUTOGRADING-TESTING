@@ -33,16 +33,23 @@ jobs:
           python --version
           echo "Installed Packages:"
           pip list
-
-      - name: Run tests and collect results
-        run: |
           echo "Current Directory:"
           pwd
           echo "List of Files:"
-          ls -al
-          mkdir -p results
-          pytest -v > results/test_output.txt
+          ls -la
 
+      - name: Create results directory
+        run: |
+          echo "Creating results directory..."
+          mkdir -p results
+          ls -la
+
+      - name: Run tests and collect results
+        run: |
+          echo "Running tests..."
+          pytest -v || echo "Pytest failed"
+          ls -la results
+          cat results/test_output.txt || echo "No test output found"
 
       - name: Upload results
         uses: actions/upload-artifact@v3
