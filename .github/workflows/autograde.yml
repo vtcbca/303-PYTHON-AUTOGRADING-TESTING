@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4  # Use the latest version
 
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4  # Use the latest version
         with:
           python-version: '3.x'
 
@@ -28,7 +28,7 @@ jobs:
           pytest > results/test_output.txt
 
       - name: Upload results
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3  # Use the latest version
         with:
           name: test-results
           path: results/
