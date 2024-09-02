@@ -10,10 +10,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4  # Use the latest version
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
 
       - name: Set up Python
-        uses: actions/setup-python@v4  # Use the latest version
+        uses: actions/setup-python@v4
         with:
           python-version: '3.x'
 
@@ -22,13 +27,20 @@ jobs:
           python -m pip install --upgrade pip
           pip install pytest
 
+      - name: Debugging Information
+        run: |
+          echo "Python Version:"
+          python --version
+          echo "Installed Packages:"
+          pip list
+
       - name: Run tests and collect results
         run: |
           mkdir -p results
-          pytest > results/test_output.txt
+          pytest -v > results/test_output.txt
 
       - name: Upload results
-        uses: actions/upload-artifact@v3  # Use the latest version
+        uses: actions/upload-artifact@v3
         with:
           name: test-results
           path: results/
