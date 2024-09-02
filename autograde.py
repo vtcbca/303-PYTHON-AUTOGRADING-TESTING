@@ -6,7 +6,7 @@ test_cases = [
     (0, 1),     # Factorial of 0
     (10, 3628800),  # Factorial of 10
     (-5, "Error"),  # Factorial of a negative number
-    (1, 1)      # Factorial of 1
+    (1, 1)     
 ]
 
 # Function to grade a student's factorial function
