@@ -17,7 +17,7 @@ with open('results/scores.csv', mode='w', newline='') as file:
     # Extract relevant information
     for testcase in root.iter('testcase'):
         student_name = testcase.attrib['classname']  # Assuming the student's name is stored here
-        # Calculate the score
+        # Calculate the score from 25
         failures = len(testcase.findall('failure'))
         passed_tests = TOTAL_TESTS - failures
         score = passed_tests * POINTS_PER_TEST
